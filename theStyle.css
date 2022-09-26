@@ -1,0 +1,13 @@
+body {
+    background-color: lightblue;
+}
+
+P {
+    background-color: white;
+    font-size:40px;
+}
+
+.myThings {
+    border: 50px solid burlywood;
+    color:black;
+}
