@@ -1,13 +1,39 @@
 body {
+    background-color: pink;
+    font-family: "courier"
+}
+
+main {
     background-color: lightblue;
+    border: 5px solid black;
+    font-family: 'Noto Sans Buhid', sans-serif;
+    margin: 40px;
+    padding: 1vw;
 }
 
-P {
+header {
+    background-color: blue;
+
+}
+
+h1 {
+    text-align: center;
+}
+div {
+    text-align: center;
+}
+ol {
+    background-color: purple;
+
+    padding: 3vw;
+}
+
+li {
     background-color: white;
-    font-size:40px;
+    /* display: inline; */
+    padding: 3vw;
+    margin: 10px
 }
-
-.myThings {
-    border: 50px solid burlywood;
-    color:black;
+a {
+    background-color: yellow;
 }
