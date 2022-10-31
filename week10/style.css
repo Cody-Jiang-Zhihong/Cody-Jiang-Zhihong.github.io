@@ -151,3 +151,66 @@ http://stackoverflow.com/a/34696029/383904
 	color: rgba(0,0,0,0.8);
 	text-decoration: none;
 }
+
+/*newThing*/
+
+.slide1Header{
+    display: flex;
+    font-size: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.slide1Footer{
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.container1{
+    display: flex;
+    font-size: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.slide3Header{
+    display: flex;
+    font-size: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.container3{
+    display: flex;
+    font-size: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+h1{
+    color: white;
+    font-family: 'Inconsolata', Consolas, monospace;
+}
+
+h3{
+    color: white;
+    font-family: 'Inconsolata', Consolas, monospace;
+}
+
+
+.column {
+    background-color: rgba(117, 117, 117, 0.604);
+    position: relative;
+    border-style: dashed;
+    float: left;
+    width: 33.33%;
+    padding: 27px;
+    text-align: left;
+    font-size: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+}
+h4{
+    font-family: Arial;
+}
