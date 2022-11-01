@@ -197,7 +197,6 @@ h3{
     font-family: 'Inconsolata', Consolas, monospace;
 }
 
-
 .column {
     background-color: rgba(117, 117, 117, 0.604);
     position: relative;
@@ -213,4 +212,73 @@ h3{
 }
 h4{
     font-family: Arial;
+}
+
+
+/*angela part*/
+.slide4Header{
+    display: flex;
+    font-size: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.container4{
+    display: flex;
+    font-size: 50px;
+    align-items:flex-start;
+    justify-content: space-evenly;
+}
+h1{
+    color: white;
+    font-family: 'Inconsolata', Consolas, monospace;
+}
+
+h3{
+    color: white;
+    font-family: 'Inconsolata', Consolas, monospace;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  border: 1px;
+  gap: 10px;
+}
+.column1 {
+    background-color: rgba(206, 206, 206, 0.86);
+    position: relative;
+    border-style:hidden;
+    width: 33.33%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+}
+.column2 {
+  background-color: rgba(206, 206, 206, 0.86);
+  position: relative;
+  border-style:hidden;
+  width: 33.33%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+}
+.column3 {
+  background-color: rgba(206, 206, 206, 0.86);
+  position: relative;
+  border-style:hidden;
+  width: 33.33%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+}
+h4{
+    font-family:'Courier New', Courier, monospace;
+    font-size: 17px;
 }
