@@ -15,7 +15,7 @@ let scoreElem;
 let t = 0;
 
 function setup() {
-  scoreElem = createDiv('Score = 0');
+  scoreElem = createDiv('Use WASD to Move \nScore : 0');
   scoreElem.position(20, 20);
   scoreElem.id = 'score';
   scoreElem.style('color', 'white');
@@ -123,7 +123,7 @@ function checkForFruit() {
   point(xFruit, yFruit);
   if (xCor[xCor.length - 1] === xFruit && yCor[yCor.length - 1] === yFruit) {
     const prevScore = parseInt(scoreElem.html().substring(8));
-    scoreElem.html('Your Score: ' + (prevScore + 1));
+    scoreElem.html('Use WASD to Move \nYour Score: ' + (prevScore + 1));
     xCor.unshift(xCor[0]);
     yCor.unshift(yCor[0]);
     numSegments++;
