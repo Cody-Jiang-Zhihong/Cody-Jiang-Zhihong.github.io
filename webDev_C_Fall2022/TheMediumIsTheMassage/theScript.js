@@ -1,4 +1,4 @@
-console.log("DEEZ")
+console.log("CODY")
 words = document.getElementsByClassName("word"); 
 var vels = [];
 function shuffle(){
