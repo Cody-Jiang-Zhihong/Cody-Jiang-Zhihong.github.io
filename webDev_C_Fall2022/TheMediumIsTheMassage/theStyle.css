@@ -1,0 +1,35 @@
+body{
+    background-color: rgb(19, 19, 19);
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+}
+.word{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    position: absolute;
+    opacity: .50;
+    z-index: 0;
+}
+
+
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+  
+.YOU {
+    color: rgb(255, 255, 255);
+    line-height: 95vh;
+    font-size: 100px;
+    z-index: 1;
+}
+
+  .info {color: dodgerblue;}
+  .warning {color: orange;}
+  .danger {color: red;}
+  .default {color: black;}
