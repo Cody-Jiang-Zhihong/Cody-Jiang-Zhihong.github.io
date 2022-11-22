@@ -1,6 +1,6 @@
 console.log("CODY")
 words = document.getElementsByClassName("word"); 
-var vels = [];
+
 function shuffle(){
     for (let i = 0; i < words.length; i++){
         let word = document.getElementById(i.toString())
@@ -8,5 +8,6 @@ function shuffle(){
         word.style.left = Math.round(Math.random()*96.5) + "vw"
     }
 }
+
 var body = document.querySelector("body")
 body.addEventListener("mousemove", function() { shuffle() })
