@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Basic Bomberman HTML Game</title>
+  <title>PAOPAOTang Game</title>
   <meta charset="UTF-8">
   <style>
   html, body {
@@ -17,7 +17,7 @@
   }
 
   canvas {
-    background: forestgreen;
+    background: rgb(217, 255, 211);
   }
   </style>
 </head>
@@ -38,8 +38,9 @@ softWallCanvas.width = softWallCanvas.height = grid;
 
 softWallCtx.fillStyle = 'black';
 softWallCtx.fillRect(0, 0, grid, grid);
-softWallCtx.fillStyle = '#a9a9a9';
+softWallCtx.fillStyle = '#ff4545';
 
+/*
 // 1st row brick
 softWallCtx.fillRect(1, 1, grid - 2, 20);
 
@@ -50,7 +51,7 @@ softWallCtx.fillRect(22, 23, 42, 18);
 // 3rd row bricks
 softWallCtx.fillRect(0, 43, 42, 20);
 softWallCtx.fillRect(44, 43, 20, 20);
-
+*/
 // create a new canvas and draw the soft wall image. then we can use this
 // canvas to draw the images later on
 const wallCanvas = document.createElement('canvas');
@@ -61,7 +62,7 @@ wallCtx.fillStyle = 'black';
 wallCtx.fillRect(0, 0, grid, grid);
 wallCtx.fillStyle = 'white';
 wallCtx.fillRect(0, 0, grid - 2, grid - 2);
-wallCtx.fillStyle = '#a9a9a9';
+wallCtx.fillStyle = '#47d7ff';
 wallCtx.fillRect(2, 2, grid - 4, grid - 4);
 
 // create a mapping of object types
@@ -224,7 +225,7 @@ function Bomb(row, col, size, owner) {
     context.beginPath();
     context.arc(x, y, this.radius, 0, 2 * Math.PI);
     context.fill();
-
+    /*
     // draw bomb fuse moving up and down with the bomb size
     const fuseY = (this.radius === grid * 0.5 ? grid * 0.15 : 0);
     context.strokeStyle = 'white';
@@ -236,6 +237,7 @@ function Bomb(row, col, size, owner) {
       10, Math.PI, -Math.PI / 2
     );
     context.stroke();
+    */
   };
 }
 
@@ -292,6 +294,100 @@ function Explosion(row, col, dir, center) {
   };
 }
 
+
+function draw() {
+  background(245);
+  
+  //Head
+  fill(255, 217, 36);
+  noStroke();
+  //Top of head
+  ellipse(250, 250, 220, 180);
+  //Bottom of head
+  ellipse(250, 300, 230, 170);
+  
+  push();
+  stroke(0);
+  //right cheek
+  fill(240, 60, 35);
+  translate(340, 315);
+  rotate(20);
+  ellipse(0, 0, 45, 60);
+  pop();
+  
+  push();
+  stroke(0);
+  //left cheek
+  fill(240, 60, 35);
+  translate(160, 315);
+  rotate(-20);
+  ellipse(0, 0, 45, 60);
+  
+  pop();
+  
+  
+  //black of eye
+  //right eye
+  fill(0);
+  ellipse(310, 250, 40, 40);
+  //left eye
+  ellipse(190, 250, 40, 40);
+  
+  //white of eye
+  fill(255);
+  stroke(0);
+  //right eye
+  ellipse(305, 245, 20, 20);
+  //left eye
+  ellipse(195, 245, 20, 20);
+  
+  //nose
+  fill(0);
+  ellipse(250, 270, 10, 5);
+  
+  //mouth
+  stroke(0,0,0);
+  strokeWeight(3);
+  noFill();
+  //right side
+  bezier(250, 300, 270, 310, 280, 315, 290, 300);
+  //left side
+  bezier(250, 300, 230, 310, 220, 315, 210, 300);
+  
+  
+  //Didn't know push/pop before attempting -- FIX LATER
+  push();
+  //Left Ear
+  fill(255, 217, 36);
+  noStroke();
+  translate(170, 110);
+  rotate(-35);
+  ellipse(-40, 0, 50, 150);
+  //Right Ear
+  translate(-170, -110);
+  translate(330, 110);
+  rotate(35);
+  rotate(35);
+  ellipse(110, 60, 50, 150);
+  pop();
+  
+  /*
+  //Tail
+  fill(255, 217, 36);
+  noStroke();
+  //strokeWeight(2);
+  //piece 1
+  quad(350, 215, 495, 125, 475, 240, 345, 275);
+  //piece 2
+  quad(440, 350, 390, 370, 320, 320, 355, 265);
+  //piece 3
+  quad(440, 350, 420, 330, 340, 380, 370, 400);
+  //piece 4
+  quad(340, 380, 360, 380, 375, 415, 345, 440);
+  */
+  
+}
+
 // player character (just a simple circle)
 const player = {
   row: 1,
@@ -304,7 +400,8 @@ const player = {
     const y = (this.row + 0.5) * grid;
 
     context.save();
-    context.fillStyle = 'white';
+    context.fillStyle = 'yellow';
+    
     context.beginPath();
     context.arc(x, y, this.radius, 0, 2 * Math.PI);
     context.fill();
