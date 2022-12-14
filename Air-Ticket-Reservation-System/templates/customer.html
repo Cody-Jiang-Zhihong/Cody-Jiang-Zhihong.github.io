@@ -1,0 +1,176 @@
+<html>
+<head>
+</head>
+<body>
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+{% if success %}
+	<h2 style="color:blue">{{success}}<h2/>
+{% endif %}
+
+{% if error %}
+	<h2 style="color:red">{{error}}<h2/>
+{% endif %}
+
+<table>
+	<th>Airline</th>
+	<th>Flight Number</th>
+	<th>Departure Airport</th>
+	<th>Departure Date</th>
+	<th>Arrival Airport</th>
+	<th>Arrival Date</th>
+	<th>Base Price</th>
+	<th>ID Number</th>
+
+{% if flights %}
+	{% for line in flights %}
+		<tr>
+			<td>{{line['airline']}}</td>
+			<td>{{line['flight_number']}}</td>
+			<td>{{line['departure_airport']}}</td>
+			<td>{{line['departure_date_and_time']}}</td>
+			<td>{{line['arrival_airport']}}</td>
+			<td>{{line['arrival_date_and_time']}}</td>
+			<td>{{line['base_price']}}</td>
+			<td>{{line['ID_num']}}</td>
+		</tr>
+	{% endfor %}
+{% endif %}
+
+{% for line in result1 %}
+		<tr>
+			<td>{{line['airline']}}</td>
+			<td>{{line['flight_number']}}</td>
+			<td>{{line['departure_airport']}}</td>
+			<td>{{line['departure_date_and_time']}}</td>
+			<td>{{line['arrival_airport']}}</td>
+			<td>{{line['arrival_date_and_time']}}</td>
+			<td>{{line['base_price']}}</td>
+			<td>{{line['ID_num']}}</td>
+		</tr>
+	{% endfor %}
+
+{% for line in result2 %}
+	<tr>
+		<td>{{line['airline']}}</td>
+		<td>{{line['flight_number']}}</td>
+		<td>{{line['departure_airport']}}</td>
+		<td>{{line['departure_date_and_time']}}</td>
+		<td>{{line['arrival_airport']}}</td>
+		<td>{{line['arrival_date_and_time']}}</td>
+		<td>{{line['base_price']}}</td>
+		<td>{{line['ID_num']}}</td>
+	</tr>
+{% endfor %}
+
+{% if result1 and result2 %}
+{% endif %}
+</table>
+
+<h3>View My Flights:</h3>
+<table>
+	<th>Airline</th>
+	<th>Flight Number</th>
+	<th>Departure Airport</th>
+	<th>Departure Date</th>
+	<th>Arrival Airport</th>
+	<th>Arrival Date</th>
+	<th>Base Price</th>
+	<th>ID Number</th>
+
+{% for line in myflights %}
+	<tr>
+		<td>{{line['airline']}}</td>
+		<td>{{line['flight_number']}}</td>
+		<td>{{line['departure_airport']}}</td>
+		<td>{{line['departure_date_and_time']}}</td>
+		<td>{{line['arrival_airport']}}</td>
+		<td>{{line['arrival_date_and_time']}}</td>
+		<td>{{line['base_price']}}</td>
+		<td>{{line['ID_num']}}</td>
+	</tr>
+{% endfor %}
+</table><br>
+
+<form action="/viewFlightsAuth" method="POST">
+	<h3>Search for future flights</h3>
+	<p>For one way trips:</p>
+	<input type="text" name = "source_city" placeholder="Source City"/></br>
+	<input type="text" name = "destination_city" placeholder="Destination City"/></br>
+	</br>
+	<input type="text" name = "airport_name1" placeholder="Source Airport Name"/></br>
+	<input type="text" name = "airport_name2" placeholder="Target Airport Name"/></br>
+	</br>
+	<p>For round trips: (Requires the 2 airports to be filled as well)</p>
+	<input type="text" name = "departure_date" placeholder="Departure Date"/></br>
+	<input type="text" name = "arrival_date" placeholder="Arrival Date"/></br>
+	<input type="submit" name="one_way" value = "Search for One-Way">
+	<input type="submit" name="round_trip" value = "Search for Round-Trip">
+	<input type="submit" name="show_all" value = "Show all Flights">
+</form>
+<br>
+
+<form action="/customerAuth" method="POST">
+	<h3>Perform action on flight:</h3>
+	<input type="text" name = "p_airline" placeholder="Airline"/></br>
+	<input type="text" name = "p_flight_number" placeholder="Flight Number"/></br>
+	<input type="text" name = "p_departure_date" placeholder="Departure Date"/></br>
+	<input type="submit" name ="cancel" value = "Cancel Trip"><br><br>
+
+	<input type="text" name = "card_type" placeholder="Visa"/></br>
+	<input type="text" name = "card_num" placeholder="Card Number"/></br>
+	<input type="text" name = "card_name" placeholder="Name on Card"/></br>
+	<input type="text" name = "expiration_date" placeholder="Expiration Date (2025-06)"/></br>
+	<input type="submit" name = "purchase" value = "Purchase ticket">
+
+	<h3>Give Ratings and Comment on previous flights: (Please use previous form to select flight)</h3>
+	<input type="text" name = "rating" placeholder="Rating out of 10"/></br>
+	<input type="text" name = "comment" placeholder="I think that this flight was..."/></br>
+	<input type="submit" name = "submit_review" value = "Add Review">
+</form>
+
+{% if last_year_spending %}
+	<h3>You spent {{last_year_spending}} within the last year</h3>
+{% endif %}
+
+<h3>Money spent in the last 6 months:</h3>
+<table>
+	<th>Month</th>
+	<th>Money Spent</th>
+
+{% for line in monthly_spending %}
+	<tr>
+		<td>{{line['Month']}}</td>
+		<td>{{line['total_spend']}}</td>
+	</tr>
+{% endfor %}
+</table><br>
+
+<h3>Money spent in the range specified below:</h3>
+<table>
+	<th>Month</th>
+	<th>Money Spent</th>
+
+{% for line in range_spending %}
+	<tr>
+		<td>{{line['Month']}}</td>
+		<td>{{line['total_spend']}}</td>
+	</tr>
+{% endfor %}
+</table><br>
+
+<form action="/customerAuth" method="POST">
+	<h3>Track My Spending:</h3>
+	<input type="text" name = "date_start" placeholder="Start date"/>
+	<input type="text" name = "date_end" placeholder="End date"/></br>
+	<input type="submit" name = "track" value = "Set Range">
+</form>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>
