@@ -59,7 +59,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Cody Jiang.</h1>
     <p>Student at NYU.</p>
     <p>Computer Science[Tandon] + Mathematics[Courant] + Game Design[Tisch] + Game Engineering[Tandon]</p>
-    <img src="me3.JPEG" alt="boy" class="w3-image" width="792" height="792">
+    <img src="MyPhotos/tx1.jpg" alt="Cody Jiang" class="w3-image" width="256" height="256">
   </header>
 
   <!-- About Section -->
@@ -104,6 +104,56 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       </div>
     </div>
 
+    <h3 class="w3-padding-16 w3-text-light-grey">Professional Experiences</h3>
+    <div class="w3-text-grey">
+      <ul>
+      <li>
+        <strong>Student Researcher, JEPA World Model (Mentored by Prof. Yann LeCun)</strong><br>
+        <em>New York University (Sep 2024 - Present)</em>
+        <ul>
+          <li>Developed and trained self-supervised JEPA world model.</li>
+          <li>Implemented recurrent architecture predicting environmental dynamics.</li>
+          <li>Applied regularization methods like VicReg and BYOL.</li>
+          <li>Optimized model on large datasets, demonstrating strong generalization.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Part-time Assistant, AI-Powered Interview Simulation Tool</strong><br>
+        <em>Mentored by Head of Data Science from Meta (Oct 2023 - Present)</em>
+        <ul>
+          <li>Developed NLP/audio-processing interview simulation tool.</li>
+          <li>Enhanced scoring with video analysis for non-verbal communication.</li>
+          <li>Built documentation and user-friendly interface.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Student Researcher, Cancer Diagnosis Application</strong><br>
+        <em>MIT Deep Learning Research (Jun 2021 - Aug 2021)</em>
+        <ul>
+          <li>Engineered CNN and NLP integrated cancer diagnosis application.</li>
+          <li>Achieved 89% accuracy; contributed to research papers.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Software Engineering Intern</strong><br>
+        <em>Anhui Yuntai Transportation Development Ltd (Jun 2023 - Aug 2023)</em>
+        <ul>
+          <li>Developed mobile app and C++ database for vehicle operation management.</li>
+          <li>Optimized routes and efficiency, improving revenue analysis by 15%.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Game Developer, Indie Game Projects</strong><br>
+        <em>Personal Projects (Jan 2022 - Present)</em>
+        <ul>
+          <li><a href="https://cody-jiang.itch.io/">Visit my indie game website</a>.</li>
+          <li>Created interactive card and arcade games using JavaScript, HTML, CSS, Node.js.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
     <button class="w3-button w3-light-grey w3-padding-large w3-section">
       <i class="fa fa-download"></i><a href="myResume/CS_resume_Zhihong Jiang v2.pdf">Download My Computer Science Resume</a> 
     </button>
@@ -112,6 +162,46 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     </button>
   
   <!-- Portfolio Section -->
+  <div class="w3-padding-64 w3-content" id="album">
+    <h2 class="w3-text-light-grey">My Cool Album</h2>
+    <hr style="width:200px" class="w3-opacity">
+    
+    <div class="w3-row-padding w3-margin-top">
+      <div class="w3-col l3 m6">
+        <img src="MyPhotos/grad1.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="MyPhotos/grad2.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="MyPhotos/grad3.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
+      </div>
+      <div class="w3-col l3 m6">
+        <img src="MyPhotos/grad4.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
+      </div>
+    </div>
+  
+    <div class="w3-row-padding w3-margin-top">
+      <div class="w3-col l4 m6">
+        <img src="MyPhotos/grad5.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
+      </div>
+      <div class="w3-col l4 m6">
+        <img src="MyPhotos/life1.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
+      </div>
+      <div class="w3-col l4 m6">
+        <img src="MyPhotos/life2.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for full-size image preview -->
+  <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img id="img01" style="width:100%">
+    </div>
+  </div>
+  
   <div class="w3-padding-64 w3-content" id="photos">
     <h2 class="w3-text-light-grey">My Projects</h2>
     <hr style="width:200px" class="w3-opacity">
@@ -211,6 +301,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 <!-- END PAGE CONTENT -->
 </div>
+
+<script>
+  function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+  }
+</script>
 
 </body>
 </html>
