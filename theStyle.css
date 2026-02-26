@@ -28,6 +28,35 @@ body {
     radial-gradient(circle at 90% 0%, rgba(111, 72, 255, 0.15), transparent 45%),
     var(--bg);
   line-height: 1.55;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  width: 40vmax;
+  height: 40vmax;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: -1;
+  animation: driftGlow 18s ease-in-out infinite;
+}
+
+body::before {
+  top: -10vmax;
+  right: -10vmax;
+  background: rgba(43, 168, 255, 0.45);
+}
+
+body::after {
+  bottom: -14vmax;
+  left: -12vmax;
+  background: rgba(111, 72, 255, 0.35);
+  animation-delay: -9s;
 }
 
 a {
@@ -55,6 +84,18 @@ a:hover {
   border-radius: calc(var(--radius) + 6px);
   padding: 1.25rem;
   box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.05) 45%, transparent 60%);
+  transform: translateX(-120%);
+  animation: heroSweep 1.3s ease-out 0.35s both;
+  pointer-events: none;
 }
 
 .hero-avatar {
@@ -64,6 +105,9 @@ a:hover {
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.14);
+  transform: translateY(10px) scale(0.985);
+  opacity: 0;
+  animation: riseIn 0.7s cubic-bezier(.2,.8,.2,1) 0.08s forwards, avatarFloat 7s ease-in-out 1.1s infinite;
 }
 
 .hero-copy {
@@ -73,6 +117,19 @@ a:hover {
   align-content: center;
   gap: 0.15rem;
 }
+
+.hero-copy > * {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: riseIn 0.6s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+.hero-copy > :nth-child(1) { animation-delay: 0.14s; }
+.hero-copy > :nth-child(2) { animation-delay: 0.22s; }
+.hero-copy > :nth-child(3) { animation-delay: 0.3s; }
+.hero-copy > :nth-child(4) { animation-delay: 0.38s; }
+.hero-copy > :nth-child(5) { animation-delay: 0.46s; }
+.hero-copy > :nth-child(6) { animation-delay: 0.54s; }
 
 .eyebrow {
   margin: 0;
@@ -136,11 +193,14 @@ a:hover {
   background: rgba(255, 255, 255, 0.03);
   color: var(--text);
   font-weight: 600;
+  transition: transform 0.18s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .button:hover {
   background: rgba(255, 255, 255, 0.07);
   color: var(--text);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
 }
 
 .button-primary {
@@ -167,11 +227,13 @@ a:hover {
   background: rgba(255, 255, 255, 0.02);
   color: var(--muted);
   font-size: 0.95rem;
+  transition: transform 0.18s ease, border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 
 .top-nav a:hover {
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
 }
 
 .page-shell {
@@ -188,6 +250,12 @@ a:hover {
   border-radius: var(--radius);
   padding: 1.2rem;
   backdrop-filter: blur(6px);
+  transition: transform 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.panel:hover {
+  transform: translateY(-2px);
+  border-color: rgba(138, 208, 255, 0.18);
 }
 
 .section-title h2 {
@@ -214,6 +282,12 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 14px;
   padding: 1rem;
+  transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(138, 208, 255, 0.2);
 }
 
 .timeline-item h3 {
@@ -250,12 +324,13 @@ a:hover {
   overflow: hidden;
   background: #0f1117;
   cursor: pointer;
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .photo-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.01);
   border-color: rgba(138, 208, 255, 0.45);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
 }
 
 .photo-card img {
@@ -276,6 +351,12 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 14px;
   padding: 1rem;
+  transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(138, 208, 255, 0.2);
 }
 
 .category-card h3 {
@@ -351,10 +432,55 @@ a:hover {
   color: var(--text);
   cursor: pointer;
   font-size: 1.2rem;
+  transition: background-color 0.2s ease, transform 0.16s ease;
 }
 
 .modal-close:hover {
   background: rgba(255, 255, 255, 0.12);
+  transform: rotate(90deg);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(.2,.8,.2,1), transform 0.55s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-on-scroll[data-delay="1"] { transition-delay: 0.05s; }
+.reveal-on-scroll[data-delay="2"] { transition-delay: 0.1s; }
+.reveal-on-scroll[data-delay="3"] { transition-delay: 0.15s; }
+.reveal-on-scroll[data-delay="4"] { transition-delay: 0.2s; }
+.reveal-on-scroll[data-delay="5"] { transition-delay: 0.25s; }
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroSweep {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(120%); }
+}
+
+@keyframes avatarFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.003); }
+}
+
+@keyframes driftGlow {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2vmax, -1.5vmax, 0) scale(1.06); }
 }
 
 @media (max-width: 720px) {
@@ -390,7 +516,36 @@ a:hover {
     scroll-behavior: auto;
   }
 
+  body::before,
+  body::after,
+  .hero::after,
+  .hero-avatar,
+  .hero-copy > * {
+    animation: none !important;
+  }
+
+  .hero-avatar,
+  .hero-copy > * {
+    opacity: 1;
+    transform: none;
+  }
+
   .photo-card {
     transition: none;
+  }
+
+  .button,
+  .top-nav a,
+  .panel,
+  .timeline-item,
+  .category-card,
+  .modal-close,
+  .reveal-on-scroll {
+    transition: none !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
   }
 }
