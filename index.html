@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cody Jiang | Portfolio</title>
-  <meta name="description" content="Cody Jiang's personal website: research, games, coursework, and contact information.">
+  <title>Zhihong (Cody) Jiang | Portfolio</title>
+  <meta name="description" content="Zhihong (Cody) Jiang's personal website: AI research, engineering systems, games, coursework, and contact information.">
   <link rel="stylesheet" href="theStyle.css">
 </head>
 <body>
@@ -12,12 +12,12 @@
     <div class="hero">
       <img class="hero-avatar" src="MyPhotos/tx1.jpg" alt="Portrait of Cody Jiang" width="240" height="240">
       <div class="hero-copy">
-        <p class="eyebrow">Cody Jiang</p>
-        <h1>Researcher, Builder, and Game Developer</h1>
-        <p class="lede">NYU student working across computer science, mathematics, game design, and game engineering.</p>
-        <p class="hero-tags">Computer Science (Tandon) | Mathematics (Courant) | Game Design (Tisch) | Game Engineering (Tandon)</p>
+        <p class="eyebrow">Zhihong (Cody) Jiang</p>
+        <h1>AI Research, Systems Engineering, and Game Development</h1>
+        <p class="lede">M.S. Computer Science candidate at NYU (expected Dec 2026, merit scholarship recipient) building practical AI systems, data pipelines, and interactive games.</p>
+        <p class="hero-tags">Python | C++ | C# | SQL | Golang | PyTorch | Transformers | Docker | Unity | XLua</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="myResume/Resume_Zhihong Jiang V4.0.pdf">Download Resume</a>
+          <a class="button button-primary" href="myResume/ZhihongJiang_CurriculumVitae_Feb2026.pdf">Download My Curriculum Vitae</a>
           <a class="button" href="#projects">View Projects</a>
         </div>
       </div>
@@ -35,65 +35,89 @@
     <section class="panel" id="about">
       <div class="section-title">
         <p class="eyebrow">About</p>
-        <h2>Who I am</h2>
+        <h2>Profile, Education, and Skills</h2>
       </div>
       <p class="muted">
-        Passionate machine learning researcher and gaming nerd. I enjoy building systems that combine technical depth with interactive experiences.
+        I focus on machine learning systems, engineering tooling, and game/AI runtime design. My recent work spans self-supervised world models, production-oriented gameplay AI architecture, and large-scale data/analysis pipelines.
       </p>
+      <div class="timeline" style="margin-top: 0.9rem;">
+        <article class="timeline-item">
+          <h3>Education</h3>
+          <ul>
+            <li>New York University - M.S. in Computer Science (Expected Dec 2026, Merit Scholarship Recipient)</li>
+            <li>New York University - B.S. in Computer Science, Minor in Applied Mathematics, Minor in Game Design (Sep 2021 - May 2024)</li>
+            <li>Elite Preparatory Academy - Honor Class (Sep 2018 - May 2020)</li>
+          </ul>
+        </article>
+        <article class="timeline-item">
+          <h3>Technical Focus</h3>
+          <ul>
+            <li>ML/AI: PyTorch, TensorFlow, Hugging Face Transformers, SpaCy, Torchaudio, XGBoost, JEPA, CNNs, NLP pipelines</li>
+            <li>Data/Infra: Pandas, NumPy, Dask, PySpark, ETL, large-scale processing, Git, Docker, Linux</li>
+            <li>Web/Backend: React, Vite, JavaScript, HTML/CSS, Flask, Express, Node.js, REST APIs, JWT</li>
+            <li>Game/Graphics: Unity, XLua, Godot, GameMaker, OpenGL</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="panel" id="experience">
       <div class="section-title">
         <p class="eyebrow">Experience</p>
-        <h2>Professional Experience</h2>
+        <h2>Research and Engineering Experience</h2>
       </div>
 
       <div class="timeline">
         <article class="timeline-item">
-          <h3>Student Researcher, JEPA World Model (Mentored by Prof. Yann LeCun)</h3>
-          <p class="meta">New York University | Sep 2024 - Present</p>
+          <h3>Gameplay / AI Systems Developer</h3>
+          <p class="meta">AbyssalPact (Unity, C#, XLua) | Apr 2025 - Present</p>
           <ul>
-            <li>Developed and trained a self-supervised JEPA world model.</li>
-            <li>Implemented recurrent architecture for environmental dynamics prediction.</li>
-            <li>Applied regularization methods including VicReg and BYOL.</li>
-            <li>Optimized large-scale training for stronger generalization.</li>
+            <li>Own enemy AI systems architecture for a turn-based card game with a hybrid C# + XLua runtime.</li>
+            <li>Built enemy-turn execution pipeline (scoring, target selection, summon placement, fallback handling) for safer runtime behavior.</li>
+            <li>Designed extensible AI tag + metadata model to scale decision logic as mechanics and card count grow.</li>
+            <li>Added runtime-configurable AI parameters, compatibility shims, and debugging safeguards for faster balancing and staged migration.</li>
           </ul>
         </article>
 
         <article class="timeline-item">
-          <h3>Part-time Assistant, AI-Powered Interview Simulation Tool</h3>
-          <p class="meta">Mentored by Head of Data Science from Meta | Oct 2023 - Present</p>
+          <h3>Self-Supervised World Model (JEPA) for Sequential Prediction</h3>
+          <p class="meta">NYU Deep Learning Course Research with Prof. Yann LeCun | Sep 2024 - Dec 2024</p>
           <ul>
-            <li>Developed NLP and audio-processing interview simulation features.</li>
-            <li>Improved scoring with video analysis for non-verbal communication.</li>
-            <li>Built documentation and user-facing interface improvements.</li>
+            <li>Owned end-to-end implementation and training workflow for a JEPA-based world model for future latent-state prediction.</li>
+            <li>Designed a recurrent JEPA variant combining image sequences with action inputs to model environment dynamics.</li>
+            <li>Mitigated representation collapse using regularization strategies including VicReg and BYOL-style constraints.</li>
+            <li>Scaled experiments to 2.5M exploration frames and built probe-based evaluation for generalization testing.</li>
           </ul>
         </article>
 
         <article class="timeline-item">
-          <h3>Student Researcher, Cancer Diagnosis Application</h3>
-          <p class="meta">MIT Deep Learning Research | Jun 2021 - Aug 2021</p>
+          <h3>Engineering Assistant, AI-Powered Interview Simulation Tool</h3>
+          <p class="meta">with Thomas Modern, Data Science Lead at Meta | Oct 2023 - Mar 2024</p>
           <ul>
-            <li>Engineered a CNN and NLP integrated cancer diagnosis application.</li>
-            <li>Achieved 89% accuracy and contributed to research outcomes.</li>
+            <li>Led core development of an interview simulation tool combining NLP and audio analysis for structured feedback.</li>
+            <li>Built model-driven analysis components with Python, PyTorch, Transformers, Torchaudio, and SpaCy.</li>
+            <li>Expanded evaluation pipeline with video-based nonverbal analysis and audio-based structure/terminology assessment.</li>
+            <li>Improved usability with user-facing features and documentation.</li>
           </ul>
         </article>
 
         <article class="timeline-item">
           <h3>Software Engineering Intern</h3>
-          <p class="meta">Anhui Yuntai Transportation Development Ltd | Jun 2023 - Aug 2023</p>
+          <p class="meta">Anhui Yuntai Transportation Development Limited | Jun 2023 - Aug 2023</p>
           <ul>
-            <li>Developed a mobile app and C++ database for vehicle operations management.</li>
-            <li>Optimized routes and efficiency, improving revenue analysis by 15%.</li>
+            <li>Contributed to a mobile operations system for bus dispatch and car-rental workflow digitization.</li>
+            <li>Built a C++ data module for routes, revenue, trip duration, and passenger flow reporting.</li>
+            <li>Supported route and operations analysis that contributed to an estimated 15% efficiency improvement.</li>
           </ul>
         </article>
 
         <article class="timeline-item">
-          <h3>Game Developer, Indie Game Projects</h3>
-          <p class="meta">Personal Projects | Jan 2022 - Present</p>
+          <h3>CNN Application in Cancer Diagnosis</h3>
+          <p class="meta">MIT Deep Learning Research with Prof. Mark Vogelsberger | Jun 2021 - Aug 2021</p>
           <ul>
-            <li><a href="https://cody-jiang.itch.io/" target="_blank" rel="noopener noreferrer">Visit my itch.io page</a></li>
-            <li>Built interactive card and arcade games with JavaScript, HTML, CSS, and Node.js.</li>
+            <li>Contributed to an AI-assisted cancer diagnosis application integrating model inference, UI workflow, and NLP support.</li>
+            <li>Built and trained a CNN-based classification component reaching 89% accuracy.</li>
+            <li>Supported usability improvements, onboarding materials, and research publication efforts.</li>
           </ul>
         </article>
       </div>
@@ -118,30 +142,39 @@
     <section class="panel" id="projects">
       <div class="section-title">
         <p class="eyebrow">Projects</p>
-        <h2>Selected Work and Archives</h2>
+        <h2>Selected Technical Projects and Archives</h2>
       </div>
 
       <div class="category-grid">
         <section class="category-card">
+          <h3>Selected Technical Projects (Recent)</h3>
+          <ul class="link-list">
+            <li>AI-Generated Code Technical Debt Analysis System (Python, Dask, Git, Docker, static analysis, visualization)</li>
+            <li>NVIDIA Options Market Pipeline and Visualization (Python, Pandas, D3.js, ETL, financial systems)</li>
+            <li>Steam Review Radar: platform behavior and signal quality analysis (Negative Binomial, XGBoost, large-scale data pipeline)</li>
+          </ul>
+        </section>
+
+        <section class="category-card">
           <h3>Front-End / Web Coursework</h3>
           <ul class="link-list">
-            <li><a href="webDev_C_Fall2022/week2/week2.html">Week 2</a></li>
-            <li><a href="webDev_C_Fall2022/week4/week4.html">Week 4</a></li>
-            <li><a href="webDev_C_Fall2022/week5/week5.html">Week 5</a></li>
-            <li><a href="webDev_C_Fall2022/week7/Codys week7.html">Week 7</a></li>
-            <li><a href="webDev_C_Fall2022/week8/week8.html">Week 8</a></li>
-            <li><a href="webDev_C_Fall2022/week10/index.html">Week 10</a></li>
-            <li><a href="webDev_C_Fall2022/week11/index.html">Week 11</a></li>
-            <li><a href="webDev_C_Fall2022/week12/index.html">Week 12</a></li>
-            <li><a href="webDev_C_Fall2022/TheMediumIsTheMassage/index.html">The Medium Is The Massage</a></li>
-            <li><a href="webDev_C_Fall2022/PKM/index.html">Pokemon Game</a></li>
+            <li><a href="webDev_C_Fall2022/week2/week2.html">Future Recording Technology Response Page</a></li>
+            <li><a href="webDev_C_Fall2022/week4/week4.html">Ways of Seeing Response Page</a></li>
+            <li><a href="webDev_C_Fall2022/week5/week5.html">Interactive Hypertext Story Prototype</a></li>
+            <li><a href="webDev_C_Fall2022/week7/Codys week7.html">Camera or Weapon Photo Essay</a></li>
+            <li><a href="webDev_C_Fall2022/week8/week8.html">CSS Coffee Cup Illustration</a></li>
+            <li><a href="webDev_C_Fall2022/week10/index.html">Net.Art / BIGDOLL Presentation Page</a></li>
+            <li><a href="webDev_C_Fall2022/week11/index.html">p5.js Generative Sketch</a></li>
+            <li><a href="webDev_C_Fall2022/week12/index.html">Checkbox Interaction Experiment</a></li>
+            <li><a href="webDev_C_Fall2022/TheMediumIsTheMassage/index.html">The Medium Is the Massage Response Site</a></li>
+            <li><a href="webDev_C_Fall2022/PKM/index.html">Pokemon World Web Game</a></li>
           </ul>
         </section>
 
         <section class="category-card">
           <h3>Database / SQL / Python</h3>
           <ul class="link-list">
-            <li><a href="Air-Ticket-Reservation-System/templates/index.html">Air Ticket Reservation System</a></li>
+            <li><a href="Air-Ticket-Reservation-System/templates/index.html">Airline Ticket Booking System (SQL + Flask)</a></li>
           </ul>
         </section>
 
@@ -156,6 +189,7 @@
             <li><a href="myGame/Prototype_3/index.html">Prototype 3</a></li>
             <li><a href="myGame/Prototype_4/index.html">Prototype 4</a></li>
             <li><a href="myGame/Prototype_6/index.html">Prototype 6</a></li>
+            <li><a href="https://cody-jiang.itch.io/" target="_blank" rel="noopener noreferrer">itch.io Portfolio</a></li>
           </ul>
         </section>
 
@@ -175,12 +209,12 @@
         <h2>Get in touch</h2>
       </div>
       <div class="contact-grid">
-        <p><span>Location</span> Brooklyn, NY, US</p>
+        <p><span>Location</span> New York, NY</p>
         <p><span>Phone</span> <a href="tel:+19175194588">+1 917-519-4588</a></p>
-        <p><span>Email</span> <a href="mailto:zj2247@nyu.edu">zj2247@nyu.edu</a></p>
+        <p><span>Email</span> <a href="mailto:cody.jiang@nyu.edu">cody.jiang@nyu.edu</a></p>
       </div>
       <div class="hero-actions">
-        <a class="button button-primary" href="mailto:zj2247@nyu.edu?subject=Website%20Inquiry">Send Email</a>
+        <a class="button button-primary" href="mailto:cody.jiang@nyu.edu?subject=Website%20Inquiry">Send Email</a>
       </div>
     </section>
   </main>
