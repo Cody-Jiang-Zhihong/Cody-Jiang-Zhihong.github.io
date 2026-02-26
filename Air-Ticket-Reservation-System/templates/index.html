@@ -1,110 +1,634 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SV Airline System | Flight Search Demo</title>
+  <meta name="description" content="SV Airline System demo homepage for flight search and status lookup.">
+  <style>
+    :root {
+      --bg: #0a1325;
+      --bg-2: #101e3a;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-strong: rgba(255, 255, 255, 0.09);
+      --border: rgba(255, 255, 255, 0.14);
+      --text: #edf3ff;
+      --muted: #b7c5e4;
+      --accent: #63b3ff;
+      --accent-2: #3b82f6;
+      --danger: #ff7b8c;
+      --ok: #5be6b3;
+      --radius: 16px;
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(99, 179, 255, 0.18), transparent 35%),
+        radial-gradient(circle at 90% 0%, rgba(59, 130, 246, 0.16), transparent 40%),
+        linear-gradient(180deg, var(--bg), #09111f 50%, #070d17);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1200px, calc(100% - 2rem));
+      margin: 1.2rem auto 2.5rem;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #4dc4ff, #3869ff);
+      box-shadow: 0 8px 20px rgba(55, 120, 255, 0.35);
+      font-weight: 800;
+    }
+
+    .brand-sub {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-1px);
+      border-color: rgba(99, 179, 255, 0.45);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .pill.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 24px rgba(61, 126, 255, 0.35);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--panel), rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-main {
+      padding: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: -20% auto auto 60%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 179, 255, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    h1 {
+      margin: 0.45rem 0 0;
+      font-size: clamp(1.8rem, 3vw, 2.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-main p {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .hero-stats {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .stat {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 0.7rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .hero-side {
+      padding: 1.05rem;
+      display: grid;
+      gap: 0.8rem;
+      align-content: start;
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      width: fit-content;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(91, 230, 179, 0.25);
+      background: rgba(91, 230, 179, 0.08);
+      color: #b5ffe4;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .status-chip::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ok);
+      box-shadow: 0 0 12px rgba(91, 230, 179, 0.75);
+    }
+
+    .note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .warning {
+      border: 1px solid rgba(255, 123, 140, 0.2);
+      background: rgba(255, 123, 140, 0.06);
+      color: #ffd4db;
+      border-radius: 12px;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .panel {
+      padding: 1rem;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    .panel .sub {
+      margin: 0.35rem 0 0.9rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .field label {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.68rem 0.75rem;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .field input::placeholder {
+      color: #98a8cc;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: rgba(99, 179, 255, 0.55);
+      box-shadow: 0 0 0 3px rgba(99, 179, 255, 0.14);
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .inline-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.25rem;
+    }
+
+    button,
+    input[type="submit"] {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.65rem 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    button:hover,
+    input[type="submit"]:hover {
+      transform: translateY(-1px);
+      border-color: rgba(99, 179, 255, 0.45);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-color: transparent;
+      box-shadow: 0 10px 24px rgba(61, 126, 255, 0.28);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      background: rgba(8, 14, 25, 0.5);
+    }
+
+    table {
+      width: 100%;
+      min-width: 880px;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: rgba(23, 36, 66, 0.95);
+      color: #dfe9ff;
+      text-align: left;
+      font-size: 0.83rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    th, td {
+      padding: 0.75rem 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      vertical-align: top;
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    tbody tr:hover {
+      background: rgba(99, 179, 255, 0.05);
+    }
+
+    .price {
+      font-weight: 700;
+      color: #d4ebff;
+    }
+
+    .status-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .status-result {
+      border-radius: 12px;
+      border: 1px solid rgba(91, 230, 179, 0.22);
+      background: rgba(91, 230, 179, 0.06);
+      padding: 0.8rem;
+    }
+
+    .status-result strong {
+      color: #dfffee;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: calc(100% - 1rem);
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: stretch;
+      }
+
+      .nav-actions {
+        width: 100%;
+      }
+
+      .nav-actions a {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<style type="text/css">
-table, th, td{
-	border: 1px solid black;
-}
-</style>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">SV</div>
+        <div>
+          <div>SV Airline System</div>
+          <span class="brand-sub">Flight Search and Booking Demo Interface</span>
+        </div>
+      </div>
+      <nav class="nav-actions" aria-label="Account actions">
+        <a class="pill" href="/login">Login</a>
+        <a class="pill primary" href="/register">Register</a>
+      </nav>
+    </header>
 
-<h1>Welcome to SV Airline System</h1>
-<a href="/login">Login</a>
-<a href="/register">Register</a>
-<br>
-{% if register %}
-	<h2 style="color:blue">{{register}}</h2>
-{% endif %}
-{% if error %}
-	<h3>Error: {{error}}</h3>
-{% endif %}
-<h3>Search for future flights</h3>
-<table>
-	<th>Airline</th>
-	<th>Flight Number</th>
-	<th>Departure Airport</th>
-	<th>Departure Date</th>
-	<th>Arrival Airport</th>
-	<th>Arrival Date</th>
-	<th>Base Price</th>
-	<th>ID Number</th>
+    <section class="hero">
+      <div class="card hero-main">
+        <p class="eyebrow">Airline Reservation Project</p>
+        <h1>Search Flights, Check Status, and Preview Booking Flow</h1>
+        <p>
+          A polished front-end demo for the database-backed airline reservation system. This page is designed to look clean even when opened directly as a local file for portfolio showcase purposes.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>Flight Search</strong>
+            <span>One-way, round-trip, and full-list browsing</span>
+          </div>
+          <div class="stat">
+            <strong>Status Lookup</strong>
+            <span>Check scheduled flight status by route/date</span>
+          </div>
+          <div class="stat">
+            <strong>SQL + Flask</strong>
+            <span>Course project demo built around relational workflows</span>
+          </div>
+        </div>
+      </div>
 
-{% if flights %}
-	{% for line in flights %}
-		<tr>
-			<td>{{line['airline']}}</td>
-			<td>{{line['flight_number']}}</td>
-			<td>{{line['departure_airport']}}</td>
-			<td>{{line['departure_date_and_time']}}</td>
-			<td>{{line['arrival_airport']}}</td>
-			<td>{{line['arrival_date_and_time']}}</td>
-			<td>{{line['base_price']}}</td>
-			<td>{{line['ID_num']}}</td>
-		</tr>
-	{% endfor %}
-{% endif %}
+      <aside class="card hero-side">
+        <div class="status-chip">Demo Preview Ready</div>
+        <p class="note">This page is styled as a portfolio-facing UI mockup. In the original Flask app, dynamic results are rendered via backend templates.</p>
+        <div class="warning">
+          If opened via <code>file://</code>, backend routes (e.g. <code>/login</code>, <code>/register</code>) and live query results will not execute. The layout here is intentionally still presentable for demos.
+        </div>
+      </aside>
+    </section>
 
-{% for line in result1 %}
-		<tr>
-			<td>{{line['airline']}}</td>
-			<td>{{line['flight_number']}}</td>
-			<td>{{line['departure_airport']}}</td>
-			<td>{{line['departure_date_and_time']}}</td>
-			<td>{{line['arrival_airport']}}</td>
-			<td>{{line['arrival_date_and_time']}}</td>
-			<td>{{line['base_price']}}</td>
-			<td>{{line['ID_num']}}</td>
-		</tr>
-	{% endfor %}
+    <section class="grid">
+      <section class="card panel">
+        <h2>Search for Future Flights</h2>
+        <p class="sub">Use the form below to simulate one-way or round-trip flight search inputs.</p>
 
-{% for line in result2 %}
-	<tr>
-		<td>{{line['airline']}}</td>
-		<td>{{line['flight_number']}}</td>
-		<td>{{line['departure_airport']}}</td>
-		<td>{{line['departure_date_and_time']}}</td>
-		<td>{{line['arrival_airport']}}</td>
-		<td>{{line['arrival_date_and_time']}}</td>
-		<td>{{line['base_price']}}</td>
-		<td>{{line['ID_num']}}</td>
-	</tr>
-{% endfor %}
+        <form action="/viewFlightsAuth" method="POST">
+          <div class="form-grid">
+            <div class="field">
+              <label for="source_city">Source City</label>
+              <input id="source_city" type="text" name="source_city" placeholder="e.g. New York">
+            </div>
+            <div class="field">
+              <label for="destination_city">Destination City</label>
+              <input id="destination_city" type="text" name="destination_city" placeholder="e.g. Los Angeles">
+            </div>
 
-</table>
-<form action="/viewFlightsAuth" method="POST">
-	<h3></h3>
-	<p>For one way trips:</p>
-	<input type="text" name = "source_city" placeholder="Source City"/></br>
-	<input type="text" name = "destination_city" placeholder="Destination City"/></br>
-	</br>
-	<input type="text" name = "airport_name1" placeholder="Source Airport Name"/></br>
-	<input type="text" name = "airport_name2" placeholder="Target Airport Name"/></br>
-	</br>
-	<p>For round trips: (Requires the 2 airports to be filled as well)</p>
-	<input type="text" name = "departure_date" placeholder="Departure Date"/></br>
-	<input type="text" name = "arrival_date" placeholder="Arrival Date"/></br>
-	<input type="submit" name="one_way" value = "Search for One-Way">
-	<input type="submit" name="round_trip" value = "Search for Round-Trip">
-	<input type="submit" name="show_all" value = "Show all Flights">
-</form>
-<br>
+            <div class="field">
+              <label for="airport_name1">Source Airport Name</label>
+              <input id="airport_name1" type="text" name="airport_name1" placeholder="e.g. JFK">
+            </div>
+            <div class="field">
+              <label for="airport_name2">Target Airport Name</label>
+              <input id="airport_name2" type="text" name="airport_name2" placeholder="e.g. LAX">
+            </div>
 
-<h3>Check flight status</h3><br>
-{% if status %}
-<h3>The status of that flight is: {{status}}</h3>
-{% endif %}
-<form action="/viewFlightsAuth" method="POST">
-	<input type="text" name = "status_airline_name" placeholder="Airline Name"/></br>
-	<input type="text" name = "status_flight_number" placeholder="Flight Number"/></br><br>
-	<input type="text" name = "status_departure" placeholder="Departure Date"/>
-	<p>or</p>
-	<input type="text" name = "status_arrival" placeholder="Arrival Date"/></br>
-	<input type="submit" name="check_status" value = "Check Status">
-</form>
+            <div class="field">
+              <label for="departure_date">Departure Date</label>
+              <input id="departure_date" type="date" name="departure_date">
+            </div>
+            <div class="field">
+              <label for="arrival_date">Arrival Date (Round Trip)</label>
+              <input id="arrival_date" type="date" name="arrival_date">
+            </div>
+
+            <p class="inline-note full">Round-trip search requires both airport fields and an arrival date.</p>
+
+            <div class="button-row full">
+              <input class="cta" type="submit" name="one_way" value="Search One-Way">
+              <input type="submit" name="round_trip" value="Search Round-Trip">
+              <input type="submit" name="show_all" value="Show All Flights">
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="card panel">
+        <h2>Check Flight Status</h2>
+        <p class="sub">Lookup by airline, flight number, and either departure or arrival date.</p>
+
+        <div class="status-grid">
+          <div class="status-result">
+            <div><strong>Latest Example Result:</strong></div>
+            <div>SV 2037 · Scheduled · On Time</div>
+          </div>
+
+          <form action="/viewFlightsAuth" method="POST">
+            <div class="form-grid">
+              <div class="field full">
+                <label for="status_airline_name">Airline Name</label>
+                <input id="status_airline_name" type="text" name="status_airline_name" placeholder="SV">
+              </div>
+              <div class="field full">
+                <label for="status_flight_number">Flight Number</label>
+                <input id="status_flight_number" type="text" name="status_flight_number" placeholder="2037">
+              </div>
+              <div class="field">
+                <label for="status_departure">Departure Date</label>
+                <input id="status_departure" type="date" name="status_departure">
+              </div>
+              <div class="field">
+                <label for="status_arrival">Arrival Date</label>
+                <input id="status_arrival" type="date" name="status_arrival">
+              </div>
+              <div class="button-row full">
+                <input class="cta" type="submit" name="check_status" value="Check Status">
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </section>
+
+    <section class="card panel">
+      <h2>Upcoming Flights (Sample Display)</h2>
+      <p class="sub">Portfolio demo table layout replacing the raw template rendering shown when opening Flask templates directly.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Airline</th>
+              <th>Flight No.</th>
+              <th>Departure Airport</th>
+              <th>Departure Time</th>
+              <th>Arrival Airport</th>
+              <th>Arrival Time</th>
+              <th>Base Price</th>
+              <th>ID Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SV</td>
+              <td>2037</td>
+              <td>JFK</td>
+              <td>2026-03-14 08:15</td>
+              <td>LAX</td>
+              <td>2026-03-14 11:42</td>
+              <td class="price">$328</td>
+              <td>SV-JFK-LAX-2037</td>
+            </tr>
+            <tr>
+              <td>SV</td>
+              <td>1184</td>
+              <td>EWR</td>
+              <td>2026-03-15 13:30</td>
+              <td>SEA</td>
+              <td>2026-03-15 17:06</td>
+              <td class="price">$362</td>
+              <td>SV-EWR-SEA-1184</td>
+            </tr>
+            <tr>
+              <td>SV</td>
+              <td>5109</td>
+              <td>LGA</td>
+              <td>2026-03-16 19:20</td>
+              <td>MIA</td>
+              <td>2026-03-16 22:38</td>
+              <td class="price">$254</td>
+              <td>SV-LGA-MIA-5109</td>
+            </tr>
+            <tr>
+              <td>SV</td>
+              <td>3302</td>
+              <td>JFK</td>
+              <td>2026-03-19 07:05</td>
+              <td>BOS</td>
+              <td>2026-03-19 08:14</td>
+              <td class="price">$129</td>
+              <td>SV-JFK-BOS-3302</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Portfolio preview version of the course project UI. For dynamic queries and database-backed behavior, run the Flask app.
+    </p>
+  </div>
 </body>
-
 </html>
