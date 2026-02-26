@@ -47,8 +47,8 @@ a:hover {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(140px, 240px) 1fr;
-  gap: 1.5rem;
+  grid-template-columns: minmax(170px, 250px) minmax(0, 1fr);
+  gap: 1.35rem;
   align-items: center;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
   border: 1px solid var(--panel-border);
@@ -59,36 +59,63 @@ a:hover {
 
 .hero-avatar {
   width: 100%;
-  max-width: 240px;
+  max-width: 250px;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.eyebrow {
-  margin: 0 0 0.35rem;
-  color: var(--accent);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+.hero-copy {
+  min-width: 0;
+  max-width: 760px;
+  display: grid;
+  align-content: center;
+  gap: 0.15rem;
 }
 
-.hero-copy h1 {
+.eyebrow {
   margin: 0;
-  font-size: clamp(1.8rem, 3vw, 3rem);
-  line-height: 1.15;
+  color: var(--accent);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.9;
+}
+
+.hero-name {
+  margin: 0.15rem 0 0;
+  font-size: clamp(2.2rem, 4.4vw, 3.9rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  max-width: 12ch;
+}
+
+.hero-role {
+  margin: 0.6rem 0 0;
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  line-height: 1.25;
+  color: #dce7f4;
+  max-width: 34ch;
+  font-weight: 600;
+  padding-left: 0.75rem;
+  border-left: 2px solid rgba(138, 208, 255, 0.45);
 }
 
 .lede {
-  margin: 0.9rem 0 0;
+  margin: 0.85rem 0 0;
   color: var(--muted);
-  font-size: 1.03rem;
+  font-size: 1rem;
+  max-width: 56ch;
 }
 
 .hero-tags {
   margin: 0.8rem 0 0;
   color: #d8e1ee;
+  font-size: 0.94rem;
+  line-height: 1.4;
+  max-width: 58ch;
 }
 
 .hero-actions {
@@ -338,6 +365,15 @@ a:hover {
 
   .hero-avatar {
     max-width: 180px;
+  }
+
+  .hero-name {
+    line-height: 1;
+    max-width: none;
+  }
+
+  .hero-role {
+    max-width: 100%;
   }
 
   .top-nav {
