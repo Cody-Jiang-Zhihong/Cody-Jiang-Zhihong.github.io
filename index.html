@@ -1,291 +1,233 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Cody Jiangs Homepage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {width: 120px;background: #222;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cody Jiang | Portfolio</title>
+  <meta name="description" content="Cody Jiang's personal website: research, games, coursework, and contact information.">
+  <link rel="stylesheet" href="theStyle.css">
 </head>
-<body class="w3-black">
-
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <img src="avatar.png" style="width:100%">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>ABOUT</p>
-  </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PROJECTS</p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-</nav>
-
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PROJECTS</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
-  </div>
-</div>
-
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Cody Jiang.</h1>
-    <p>Student at NYU.</p>
-    <p>Computer Science[Tandon] + Mathematics[Courant] + Game Design[Tisch] + Game Engineering[Tandon]</p>
-    <img src="MyPhotos/tx1.jpg" alt="Cody Jiang" class="w3-image" width="256" height="256">
+<body>
+  <header class="site-header" id="home">
+    <div class="hero">
+      <img class="hero-avatar" src="MyPhotos/tx1.jpg" alt="Portrait of Cody Jiang" width="240" height="240">
+      <div class="hero-copy">
+        <p class="eyebrow">Cody Jiang</p>
+        <h1>Researcher, Builder, and Game Developer</h1>
+        <p class="lede">NYU student working across computer science, mathematics, game design, and game engineering.</p>
+        <p class="hero-tags">Computer Science (Tandon) | Mathematics (Courant) | Game Design (Tisch) | Game Engineering (Tandon)</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="myResume/Resume_Zhihong Jiang V4.0.pdf">Download Resume</a>
+          <a class="button" href="#projects">View Projects</a>
+        </div>
+      </div>
+    </div>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#album">Album</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text-light-grey">About ME</h2>
-    <hr style="width:200px" class="w3-opacity">
-    <p>
-      Passionate Machine Learning Researcher / Gaming Nerd I am.
-    </p>
-    <!-- <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-    <p class="w3-wide">Computer Science</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
-    </div>
-    <p class="w3-wide">Applied Mathematics</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:85%"></div>
-    </div>
-    <p class="w3-wide">Game Design</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-    </div><br> -->
-    
-    <!-- <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">11+</span><br>
-        Partners
+  <main class="page-shell">
+    <section class="panel" id="about">
+      <div class="section-title">
+        <p class="eyebrow">About</p>
+        <h2>Who I am</h2>
       </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">55+</span><br>
-        Projects Done
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">89+</span><br>
-        Happy Clients
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">150+</span><br>
-        Meetings
-      </div>
-    </div> -->
+      <p class="muted">
+        Passionate machine learning researcher and gaming nerd. I enjoy building systems that combine technical depth with interactive experiences.
+      </p>
+    </section>
 
-    <h3 class="w3-padding-16 w3-text-light-grey">Professional Experiences</h3>
-    <div class="w3-text-grey">
-      <ul>
-      <li>
-        <strong>Student Researcher, JEPA World Model (Mentored by Prof. Yann LeCun)</strong><br>
-        <em>New York University (Sep 2024 - Present)</em>
-        <ul>
-          <li>Developed and trained self-supervised JEPA world model.</li>
-          <li>Implemented recurrent architecture predicting environmental dynamics.</li>
-          <li>Applied regularization methods like VicReg and BYOL.</li>
-          <li>Optimized model on large datasets, demonstrating strong generalization.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Part-time Assistant, AI-Powered Interview Simulation Tool</strong><br>
-        <em>Mentored by Head of Data Science from Meta (Oct 2023 - Present)</em>
-        <ul>
-          <li>Developed NLP/audio-processing interview simulation tool.</li>
-          <li>Enhanced scoring with video analysis for non-verbal communication.</li>
-          <li>Built documentation and user-friendly interface.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Student Researcher, Cancer Diagnosis Application</strong><br>
-        <em>MIT Deep Learning Research (Jun 2021 - Aug 2021)</em>
-        <ul>
-          <li>Engineered CNN and NLP integrated cancer diagnosis application.</li>
-          <li>Achieved 89% accuracy; contributed to research papers.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Software Engineering Intern</strong><br>
-        <em>Anhui Yuntai Transportation Development Ltd (Jun 2023 - Aug 2023)</em>
-        <ul>
-          <li>Developed mobile app and C++ database for vehicle operation management.</li>
-          <li>Optimized routes and efficiency, improving revenue analysis by 15%.</li>
-        </ul>
-      </li>
-      <li>
-        <strong>Game Developer, Indie Game Projects</strong><br>
-        <em>Personal Projects (Jan 2022 - Present)</em>
-        <ul>
-          <li><a href="https://cody-jiang.itch.io/">Visit my indie game website</a>.</li>
-          <li>Created interactive card and arcade games using JavaScript, HTML, CSS, Node.js.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+    <section class="panel" id="experience">
+      <div class="section-title">
+        <p class="eyebrow">Experience</p>
+        <h2>Professional Experience</h2>
+      </div>
 
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3>Student Researcher, JEPA World Model (Mentored by Prof. Yann LeCun)</h3>
+          <p class="meta">New York University | Sep 2024 - Present</p>
+          <ul>
+            <li>Developed and trained a self-supervised JEPA world model.</li>
+            <li>Implemented recurrent architecture for environmental dynamics prediction.</li>
+            <li>Applied regularization methods including VicReg and BYOL.</li>
+            <li>Optimized large-scale training for stronger generalization.</li>
+          </ul>
+        </article>
 
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i><a href="myResume/Resume_Zhihong Jiang V4.0.pdf">Download My Resume</a> 
-    </button>
-    <!-- <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i><a href="myResume/DS_resume_Zhihong Jiang.pdf">Download My Data Science Resume</a> 
-    </button> -->
-  
-  <!-- Portfolio Section -->
-  <div class="w3-padding-64 w3-content" id="album">
-    <h2 class="w3-text-light-grey">My Album</h2>
-    <hr style="width:200px" class="w3-opacity">
-    
-    <div class="w3-row-padding w3-margin-top">
-      <div class="w3-col l3 m6">
-        <img src="MyPhotos/grad1.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
-      </div>
-      <div class="w3-col l3 m6">
-        <img src="MyPhotos/grad2.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
-      </div>
-      <div class="w3-col l3 m6">
-        <img src="MyPhotos/grad3.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
-      </div>
-      <div class="w3-col l3 m6">
-        <img src="MyPhotos/grad4.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
-      </div>
-    </div>
-  
-    <div class="w3-row-padding w3-margin-top">
-      <div class="w3-col l4 m6">
-        <img src="MyPhotos/grad5.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
-      </div>
-      <div class="w3-col l4 m6">
-        <img src="MyPhotos/life1.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
-      </div>
-      <div class="w3-col l4 m6">
-        <img src="MyPhotos/life2.jpg" class="w3-hover-opacity" style="width:100%" onclick="onClick(this)">
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal for full-size image preview -->
-  <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-    <div class="w3-modal-content w3-animate-zoom">
-      <img id="img01" style="width:100%">
-    </div>
-  </div>
-  
-  <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">My Projects</h2>
-    <hr style="width:200px" class="w3-opacity">
-  
-    <h2 class="w3-text-light-grey">Front-End/HTML/Javascript Project</h2>
-    <ul>
-      <li><a href="webDev_C_Fall2022/week2/week2.html">This is for week2~</a></li>
-      <li><a href="webDev_C_Fall2022/week4/week4.html">This is for week4~</a></li>
-      <li><a href="webDev_C_Fall2022/week5/week5.html">This is for week5~</a></li>
-      <li><a href="webDev_C_Fall2022/week7/Codys week7.html">This is for week7~</a></li>
-      <li><a href="webDev_C_Fall2022/week8/week8.html">This is for week8~</a></li>
-      <li><a href="webDev_C_Fall2022/week10/index.html">This is for week10~</a></li>
-      <li><a href="webDev_C_Fall2022/week11/index.html">This is for week11~</a></li>
-      <li><a href="webDev_C_Fall2022/week12/index.html">This is for week12~</a></li>
-      <li><a href="webDev_C_Fall2022/TheMediumIsTheMassage/index.html">This is for TheMediumIsTheMassage~</a></li>
-      <li><a href="webDev_C_Fall2022/PKM/index.html">My Pokemon game</a></li>
-    </ul>
-      
-    <h2 class="w3-text-light-grey">Database/SQL/HTML/Python Project</h2>
-    <ul>
-      <li><a href="Air-Ticket-Reservation-System/templates/index.html">Air-Ticket-Reservation-System</a></li>
-    </ul>
-  
-    <h2 class="w3-text-light-grey">Indie Video Game</h2>
-    <ul>
-      <li><a href="myGame/PROJECT_150/index.html">PROJECT 150: Superpowers in the Virtual World</a></li>
-      <li><a href="myGame/Codys_Final_Proj/index.html">My Contra-Like Arcade Game (1 Player/2 Players)</a></li>
-      <li><a href="myGame/Prototype_0/index.html">Cody's Game Prototype 0</a></li>
-      <li><a href="myGame/Prototype_1/index.html">Cody's Game Prototype 1</a></li>
-      <li><a href="myGame/Prototype_2/index.html">Cody's Game Prototype 2</a></li>
-      <li><a href="myGame/Prototype_3/index.html">Cody's Game Prototype 3</a></li>
-      <li><a href="myGame/Prototype_4/index.html">Cody's Game Prototype 4</a></li>
-      <li><a href="myGame/Prototype_6/index.html">Cody's Game Prototype 6</a></li>
-    </ul>
-  
-    <h2 class="w3-text-light-grey">Pure Card Game Design</h2>
-    <ul>
-      <li><a href="myGame/New Oregon Trail 2023 Summer Edition.pdf">New Oregon Trail 2023 Summer Edition</a></li>
-      <li><a href="myGame/Knightfall_RuleBook.pdf">Knightfall</a></li>
-    </ul>
-  
-  </div>
-  
+        <article class="timeline-item">
+          <h3>Part-time Assistant, AI-Powered Interview Simulation Tool</h3>
+          <p class="meta">Mentored by Head of Data Science from Meta | Oct 2023 - Present</p>
+          <ul>
+            <li>Developed NLP and audio-processing interview simulation features.</li>
+            <li>Improved scoring with video analysis for non-verbal communication.</li>
+            <li>Built documentation and user-facing interface improvements.</li>
+          </ul>
+        </article>
 
-<!-- Contact Section -->
-<div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-  <h2 class="w3-text-light-grey">Contact Me</h2>
-  <hr style="width:200px" class="w3-opacity">
+        <article class="timeline-item">
+          <h3>Student Researcher, Cancer Diagnosis Application</h3>
+          <p class="meta">MIT Deep Learning Research | Jun 2021 - Aug 2021</p>
+          <ul>
+            <li>Engineered a CNN and NLP integrated cancer diagnosis application.</li>
+            <li>Achieved 89% accuracy and contributed to research outcomes.</li>
+          </ul>
+        </article>
 
-  <div class="w3-section">
-    <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Brooklyn, NY, US</p>
-    <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +1 9175194588</p>
-    <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Email: <a href="mailto:zj2247@nyu.edu">zj2247@nyu.edu</a></p>
-  </div>
+        <article class="timeline-item">
+          <h3>Software Engineering Intern</h3>
+          <p class="meta">Anhui Yuntai Transportation Development Ltd | Jun 2023 - Aug 2023</p>
+          <ul>
+            <li>Developed a mobile app and C++ database for vehicle operations management.</li>
+            <li>Optimized routes and efficiency, improving revenue analysis by 15%.</li>
+          </ul>
+        </article>
 
-  <p>If you'd like to get in touch, please email me directly:</p>
-  <p>
-    <a href="mailto:zj2247@nyu.edu?subject=Website Inquiry" class="w3-button w3-light-grey w3-padding-large">
-      <i class="fa fa-paper-plane"></i> Send me an Email
-    </a>
-  </p>
-</div>
-<!-- End Contact Section -->
+        <article class="timeline-item">
+          <h3>Game Developer, Indie Game Projects</h3>
+          <p class="meta">Personal Projects | Jan 2022 - Present</p>
+          <ul>
+            <li><a href="https://cody-jiang.itch.io/" target="_blank" rel="noopener noreferrer">Visit my itch.io page</a></li>
+            <li>Built interactive card and arcade games with JavaScript, HTML, CSS, and Node.js.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-  
-    <!-- Footer -->
-  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p class="w3-medium">Powered by <a href="https://cody-jiang-zhihong.github.io/" target="_blank" class="w3-hover-text-green">Cody Jiang</a></p>
-  <!-- End footer -->
+    <section class="panel" id="album">
+      <div class="section-title">
+        <p class="eyebrow">Album</p>
+        <h2>Snapshots</h2>
+      </div>
+      <div class="photo-grid">
+        <button class="photo-card" type="button"><img src="MyPhotos/grad1.jpg" alt="Graduation photo 1"></button>
+        <button class="photo-card" type="button"><img src="MyPhotos/grad2.jpg" alt="Graduation photo 2"></button>
+        <button class="photo-card" type="button"><img src="MyPhotos/grad3.jpg" alt="Graduation photo 3"></button>
+        <button class="photo-card" type="button"><img src="MyPhotos/grad4.jpg" alt="Graduation photo 4"></button>
+        <button class="photo-card" type="button"><img src="MyPhotos/grad5.jpg" alt="Graduation photo 5"></button>
+        <button class="photo-card" type="button"><img src="MyPhotos/life1.jpg" alt="Life photo 1"></button>
+        <button class="photo-card" type="button"><img src="MyPhotos/life2.jpg" alt="Life photo 2"></button>
+      </div>
+    </section>
+
+    <section class="panel" id="projects">
+      <div class="section-title">
+        <p class="eyebrow">Projects</p>
+        <h2>Selected Work and Archives</h2>
+      </div>
+
+      <div class="category-grid">
+        <section class="category-card">
+          <h3>Front-End / Web Coursework</h3>
+          <ul class="link-list">
+            <li><a href="webDev_C_Fall2022/week2/week2.html">Week 2</a></li>
+            <li><a href="webDev_C_Fall2022/week4/week4.html">Week 4</a></li>
+            <li><a href="webDev_C_Fall2022/week5/week5.html">Week 5</a></li>
+            <li><a href="webDev_C_Fall2022/week7/Codys week7.html">Week 7</a></li>
+            <li><a href="webDev_C_Fall2022/week8/week8.html">Week 8</a></li>
+            <li><a href="webDev_C_Fall2022/week10/index.html">Week 10</a></li>
+            <li><a href="webDev_C_Fall2022/week11/index.html">Week 11</a></li>
+            <li><a href="webDev_C_Fall2022/week12/index.html">Week 12</a></li>
+            <li><a href="webDev_C_Fall2022/TheMediumIsTheMassage/index.html">The Medium Is The Massage</a></li>
+            <li><a href="webDev_C_Fall2022/PKM/index.html">Pokemon Game</a></li>
+          </ul>
+        </section>
+
+        <section class="category-card">
+          <h3>Database / SQL / Python</h3>
+          <ul class="link-list">
+            <li><a href="Air-Ticket-Reservation-System/templates/index.html">Air Ticket Reservation System</a></li>
+          </ul>
+        </section>
+
+        <section class="category-card">
+          <h3>Indie Video Games</h3>
+          <ul class="link-list">
+            <li><a href="myGame/PROJECT_150/index.html">PROJECT 150: Superpowers in the Virtual World</a></li>
+            <li><a href="myGame/Codys_Final_Proj/index.html">Contra-like Arcade Game (1P / 2P)</a></li>
+            <li><a href="myGame/Prototype_0/index.html">Prototype 0</a></li>
+            <li><a href="myGame/Prototype_1/index.html">Prototype 1</a></li>
+            <li><a href="myGame/Prototype_2/index.html">Prototype 2</a></li>
+            <li><a href="myGame/Prototype_3/index.html">Prototype 3</a></li>
+            <li><a href="myGame/Prototype_4/index.html">Prototype 4</a></li>
+            <li><a href="myGame/Prototype_6/index.html">Prototype 6</a></li>
+          </ul>
+        </section>
+
+        <section class="category-card">
+          <h3>Card Game Design (PDF)</h3>
+          <ul class="link-list">
+            <li><a href="myGame/New Oregon Trail 2023 Summer Edition.pdf">New Oregon Trail 2023 Summer Edition</a></li>
+            <li><a href="myGame/Knightfall_RuleBook.pdf">Knightfall Rulebook</a></li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="panel" id="contact">
+      <div class="section-title">
+        <p class="eyebrow">Contact</p>
+        <h2>Get in touch</h2>
+      </div>
+      <div class="contact-grid">
+        <p><span>Location</span> Brooklyn, NY, US</p>
+        <p><span>Phone</span> <a href="tel:+19175194588">+1 917-519-4588</a></p>
+        <p><span>Email</span> <a href="mailto:zj2247@nyu.edu">zj2247@nyu.edu</a></p>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="mailto:zj2247@nyu.edu?subject=Website%20Inquiry">Send Email</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Powered by <a href="https://cody-jiang-zhihong.github.io/" target="_blank" rel="noopener noreferrer">Cody Jiang</a></p>
   </footer>
 
-<!-- END PAGE CONTENT -->
-</div>
+  <dialog id="imageModal" class="image-modal">
+    <button class="modal-close" type="button" aria-label="Close image preview">&times;</button>
+    <img id="modalImage" alt="">
+  </dialog>
 
-<script>
-  function onClick(element) {
-    document.getElementById("img01").src = element.src;
-    document.getElementById("modal01").style.display = "block";
-  }
-</script>
+  <script>
+    (function () {
+      const modal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+      const closeButton = modal.querySelector(".modal-close");
+      const photoButtons = document.querySelectorAll(".photo-card");
 
+      photoButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const img = button.querySelector("img");
+          modalImage.src = img.src;
+          modalImage.alt = img.alt;
+          modal.showModal();
+        });
+      });
+
+      closeButton.addEventListener("click", () => modal.close());
+      modal.addEventListener("click", (event) => {
+        const rect = modal.getBoundingClientRect();
+        const inside =
+          event.clientX >= rect.left &&
+          event.clientX <= rect.right &&
+          event.clientY >= rect.top &&
+          event.clientY <= rect.bottom;
+        if (!inside) {
+          modal.close();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.open) {
+          modal.close();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
