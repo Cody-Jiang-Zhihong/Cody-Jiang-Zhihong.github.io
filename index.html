@@ -19,12 +19,14 @@
         <p class="hero-tags">Python | C++ | C# | SQL | Golang | PyTorch | Transformers | Docker | Unity | XLua</p>
         <div class="hero-actions">
           <a class="button button-primary" href="myResume/ZhihongJiang_CurriculumVitae_Feb2026.pdf">Download My Curriculum Vitae</a>
+          <a class="button" href="#resume">Choose Resume Track</a>
           <a class="button" href="#projects">View Projects</a>
         </div>
       </div>
     </div>
     <nav class="top-nav" aria-label="Primary">
       <a href="#about">About</a>
+      <a href="#resume">Resume</a>
       <a href="#experience">Experience</a>
       <a href="#album">Album</a>
       <a href="#projects">Projects</a>
@@ -33,6 +35,36 @@
   </header>
 
   <main class="page-shell">
+    <section class="panel resume-panel" id="resume">
+      <div class="section-title">
+        <p class="eyebrow">Resume Tracks</p>
+        <h2>One Profile, Three Directions</h2>
+      </div>
+      <p class="muted">
+        Pick the version that matches the role you are hiring for. Each resume emphasizes a different axis of my work while staying aligned with one technical core.
+      </p>
+      <div class="resume-grid">
+        <a class="resume-track resume-track-sde" href="myResume/[SDE]ZhihongJiang_résumé_Feb2026.pdf">
+          <span class="resume-badge">Engineering</span>
+          <h3>SDE Resume</h3>
+          <p>Backend systems, architecture decisions, delivery ownership, and software engineering depth.</p>
+        </a>
+        <a class="resume-track resume-track-ds" href="myResume/[DS]ZhihongJiang_résumé_Feb2026.pdf">
+          <span class="resume-badge">Analytics</span>
+          <h3>DS Resume</h3>
+          <p>Data pipelines, statistical modeling, experiment design, and insight-to-impact workflows.</p>
+        </a>
+        <a class="resume-track resume-track-mle" href="myResume/[MLE]ZhihongJiang_résumé_Feb2026.pdf">
+          <span class="resume-badge">Machine Learning</span>
+          <h3>MLE Resume</h3>
+          <p>Model development, training and evaluation systems, and production-minded ML engineering.</p>
+        </a>
+      </div>
+      <div class="hero-actions">
+        <a class="button" href="myResume/[Basic]ZhihongJiang_CurriculumVitae_Feb2026.pdf">Download Basic CV</a>
+      </div>
+    </section>
+
     <section class="panel" id="about">
       <div class="section-title">
         <p class="eyebrow">About</p>
@@ -237,7 +269,8 @@
         ...document.querySelectorAll(".panel"),
         ...document.querySelectorAll(".timeline-item"),
         ...document.querySelectorAll(".category-card"),
-        ...document.querySelectorAll(".photo-card")
+        ...document.querySelectorAll(".photo-card"),
+        ...document.querySelectorAll(".resume-track")
       ];
 
       revealTargets.forEach((el, index) => {

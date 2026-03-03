@@ -310,6 +310,83 @@ a:hover {
   margin-top: 0.25rem;
 }
 
+.resume-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(64, 202, 255, 0.15), transparent 42%),
+    radial-gradient(circle at 90% 78%, rgba(57, 129, 255, 0.14), transparent 40%);
+  pointer-events: none;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.8rem;
+}
+
+.resume-track {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 16, 25, 0.68);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+
+.resume-track:hover {
+  transform: translateY(-3px);
+  border-color: rgba(138, 208, 255, 0.48);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  color: var(--text);
+}
+
+.resume-track h3 {
+  margin: 0.35rem 0 0;
+  font-size: 1.05rem;
+}
+
+.resume-track p {
+  margin: 0.55rem 0 0;
+  color: #d4deeb;
+  font-size: 0.92rem;
+}
+
+.resume-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0.22rem 0.58rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #e6f6ff;
+}
+
+.resume-track-sde {
+  background: linear-gradient(160deg, rgba(31, 123, 255, 0.2), rgba(11, 16, 25, 0.85) 58%);
+}
+
+.resume-track-ds {
+  background: linear-gradient(160deg, rgba(53, 174, 206, 0.24), rgba(11, 16, 25, 0.85) 58%);
+}
+
+.resume-track-mle {
+  background: linear-gradient(160deg, rgba(92, 126, 255, 0.21), rgba(11, 16, 25, 0.85) 58%);
+}
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -508,6 +585,10 @@ a:hover {
 
   .top-nav a {
     font-size: 0.9rem;
+  }
+
+  .resume-grid {
+    grid-template-columns: 1fr;
   }
 }
 
