@@ -1,0 +1,6 @@
+node_modules/
+.preview/
+cody-castle-codex-starter/
+*.log
+test-results/
+playwright-report/

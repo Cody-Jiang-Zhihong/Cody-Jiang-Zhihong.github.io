@@ -1,0 +1,62 @@
+[
+  {
+    "file": "castle/assets/gate-v2-768.webp",
+    "bytes": 67096,
+    "originalBytes": 2753444
+  },
+  {
+    "file": "castle/assets/gate-v2-1536.webp",
+    "bytes": 230522,
+    "originalBytes": 2753444
+  },
+  {
+    "file": "castle/assets/hall-map-v2-768.webp",
+    "bytes": 76812,
+    "originalBytes": 2793766
+  },
+  {
+    "file": "castle/assets/hall-map-v2-1536.webp",
+    "bytes": 253398,
+    "originalBytes": 2793766
+  },
+  {
+    "file": "castle/assets/great-hall-768.webp",
+    "bytes": 44484,
+    "originalBytes": 2278965
+  },
+  {
+    "file": "castle/assets/great-hall-1536.webp",
+    "bytes": 141426,
+    "originalBytes": 2278965
+  },
+  {
+    "file": "castle/assets/observatory-768.webp",
+    "bytes": 49994,
+    "originalBytes": 2328119
+  },
+  {
+    "file": "castle/assets/observatory-1536.webp",
+    "bytes": 158860,
+    "originalBytes": 2328119
+  },
+  {
+    "file": "castle/assets/study-768.webp",
+    "bytes": 50220,
+    "originalBytes": 2400731
+  },
+  {
+    "file": "castle/assets/study-1536.webp",
+    "bytes": 169378,
+    "originalBytes": 2400731
+  },
+  {
+    "file": "castle/assets/workshop-768.webp",
+    "bytes": 45716,
+    "originalBytes": 2153956
+  },
+  {
+    "file": "castle/assets/workshop-1536.webp",
+    "bytes": 140198,
+    "originalBytes": 2153956
+  }
+]
