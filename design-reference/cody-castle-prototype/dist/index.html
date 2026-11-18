@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17120e">
+  <meta name="description" content="Push open the doors to Cody Jiang's castle. Explore a gallery of projects, an observatory, a workshop, and a quiet study.">
+  <title>Cody Jiang — A Castle of Small Worlds</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317120e'/%3E%3Cpath d='M14 49V19h7v7h7V14h8v12h7v-7h7v30H38V36H26v13Z' fill='%23d9b477'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/gate-v2.png">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="content.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <button class="skip-link" id="skip-entrance">Go straight to the hall</button>
+  <div id="app" class="app" data-room="gate">
+    <main id="stage" class="stage" aria-label="Explore Cody's castle">
+      <h1 id="scene-title" class="sr-only">Cody Jiang's castle entrance</h1>
+      <div id="scene-a" class="scene-layer"></div>
+      <div id="scene-b" class="scene-layer" inert></div>
+      <div class="vignette" aria-hidden="true"></div>
+      <header class="scene-hud">
+        <div class="signature">CODY JIANG<span>A CASTLE OF SMALL WORLDS</span></div>
+        <p id="scene-location" class="scene-location">AT THE THRESHOLD</p>
+        <button id="map-control" class="compass-control" aria-label="Open castle floor plan" title="Castle floor plan" hidden>
+          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15"/><path d="M20 3v5M20 32v5M3 20h5M32 20h5M25 12l-3 10-10 6 6-10z"/><path class="needle" d="M25 12l-7 6 4 4z"/></svg>
+        </button>
+      </header>
+      <button id="return-hall" class="return-hall" hidden><span aria-hidden="true">←</span> Hall</button>
+      <div class="scene-guidance">
+        <div id="hover-caption" class="hover-caption" aria-hidden="true"><span id="hover-title"></span><span id="hover-subtitle"></span></div>
+        <p id="scene-hint" class="scene-hint">Click or drag the doors to push them open.</p>
+      </div>
+      <div id="loading-status" class="loading-status" role="status" hidden><span class="loading-orbit" aria-hidden="true"></span><span id="loading-text"></span><button id="retry-load" hidden>Try again</button></div>
+      <p id="scene-announcement" class="sr-only" aria-live="polite"></p>
+    </main>
+  </div>
+  <dialog id="map-dialog" class="map-dialog" aria-labelledby="map-title">
+    <button id="close-map" class="close-dialog" aria-label="Close floor plan">×</button>
+    <p class="detail-eyebrow">A LITTLE ORIENTATION</p>
+    <h2 id="map-title">Around the castle.</h2>
+    <p class="map-intro">Every room opens onto the hall.</p>
+    <div class="floor-plan">
+      <svg class="plan-lines" viewBox="0 0 560 370" aria-hidden="true"><path d="M88 196H180V280H380V196H475M198 105V280M365 105V280"/><path class="plan-center" d="M237 247h86v66h-86z"/><circle cx="280" cy="280" r="17"/></svg>
+      <button class="plan-room plan-gallery" data-room="great-hall"><span class="plan-icon" aria-hidden="true">◇</span><strong>Gallery</strong><small>Selected work</small></button>
+      <button class="plan-room plan-study" data-room="study"><span class="plan-icon" aria-hidden="true">▤</span><strong>Study</strong><small>About & CV</small></button>
+      <button class="plan-room plan-observatory" data-room="observatory"><span class="plan-icon" aria-hidden="true">✦</span><strong>Observatory</strong><small>Research</small></button>
+      <button class="plan-room plan-workshop" data-room="workshop"><span class="plan-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19l10-10M12 5l3-3 7 7-3 3zM3 17l4 4"/></svg></span><strong>Workshop</strong><small>Games & craft</small></button>
+      <button class="plan-room plan-hall" data-room="hall"><strong>Hall</strong><small id="plan-position">You are here</small></button>
+    </div>
+    <button id="revisit-gate" class="revisit-gate">Return to the front door <span class="arrow-icon" aria-hidden="true"></span></button>
+  </dialog>
+  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
+    <button id="close-detail" class="close-dialog" aria-label="Close exhibit">×</button>
+    <p id="detail-eyebrow" class="detail-eyebrow"></p>
+    <h2 id="detail-title"></h2>
+    <p id="detail-summary" class="detail-summary"></p>
+    <div id="detail-sections" class="detail-sections"></div>
+    <div id="detail-links" class="detail-links"></div>
+    <div class="detail-footnote">CODY JIANG <span aria-hidden="true">·</span> <span id="detail-location"></span></div>
+  </dialog>
+  <noscript><div class="noscript-message">This castle uses JavaScript for spatial navigation. You can <a href="https://codyjiang.com/">visit Cody's original portfolio</a> or <a href="mailto:cody.jiang@nyu.edu">get in touch</a>.</div></noscript>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "browser": "Playwright Chromium",
+  "viewports": [
+    "1440x900",
+    "390x844 touch emulation",
+    "320x568 touch emulation"
+  ],
+  "startTime": "2026-11-18T05:04:08.601Z",
+  "duration": 20494.173,
+  "expected": 21,
+  "skipped": 0,
+  "unexpected": 0,
+  "flaky": 0
+}

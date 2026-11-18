@@ -1,0 +1,26 @@
+[
+  {
+    "file": "castle/media/project-150.webp",
+    "source": "/myGame/PROJECT_150/index.html",
+    "capturedAt": "2026-11-18T04:57:30.332Z",
+    "errors": []
+  },
+  {
+    "file": "castle/media/arcade.webp",
+    "source": "/myGame/Codys_Final_Proj/index.html",
+    "capturedAt": "2026-11-18T04:57:32.150Z",
+    "errors": []
+  },
+  {
+    "file": "castle/media/arcade-demo.webm",
+    "source": "/myGame/Codys_Final_Proj/index.html",
+    "capturedAt": "2026-11-18T04:57:36.755Z",
+    "note": "Unedited local capture of the original browser build; title screen followed by gameplay."
+  },
+  {
+    "file": "castle/media/coffee.webp",
+    "source": "/webDev_C_Fall2022/week8/week8.html",
+    "capturedAt": "2026-11-18T04:57:37.401Z",
+    "errors": []
+  }
+]
